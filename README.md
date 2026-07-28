@@ -15,7 +15,8 @@ This skill packages that pattern — plus an AI-history organiser process popula
 
 Original packaging was released by Charlie Hills (MIT). This is **Yo-Da Lai’s maintained fork**: clearer installs, Hermes + Claude Code paths, a sturdier wiki scaffold, and a share page you can send people to.
 
-**Share this repo:** https://github.com/EzAuto399/ai-second-brain  
+**Share page (send people here):** https://ezauto399.github.io/ai-second-brain/  
+**GitHub repo:** https://github.com/EzAuto399/ai-second-brain  
 **Personal site / work with me:** https://yodalai.xyz
 
 ---
