@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Second Brain — Yo-Da Lai</title>
+  <meta name="description" content="Build a living AI second brain from ChatGPT, Claude, and research history. Free Claude Code + Hermes skill by Yo-Da Lai." />
+  <meta property="og:title" content="AI Second Brain — Yo-Da Lai" />
+  <meta property="og:description" content="Turn ChatGPT + Claude history into a living wiki you can use from your laptop or phone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ezauto399.github.io/ai-second-brain/" />
+  <meta property="og:image" content="https://ezauto399.github.io/ai-second-brain/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Second Brain — Yo-Da Lai" />
+  <meta name="twitter:description" content="Free skill: living wiki from your AI history. Claude Code + Hermes." />
+  <meta name="twitter:image" content="https://ezauto399.github.io/ai-second-brain/social-preview.png" />
+  <link rel="canonical" href="https://ezauto399.github.io/ai-second-brain/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #00132F;
+      --bg2: #021a3d;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.72);
+      --dim: rgba(255,255,255,0.5);
+      --accent: #58B6FF;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(88,182,255,0.22);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(88,182,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88,182,255,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: -180px; right: -180px;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(88,182,255,0.18) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 0.98;
+      margin-bottom: 18px;
+    }
+    .lead {
+      font-size: clamp(18px, 2.4vw, 22px);
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+    .lead strong { color: var(--accent); font-weight: 600; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    a.btn:hover { transform: translateY(-1px); }
+    a.btn-primary {
+      background: var(--accent);
+      color: #00132F;
+    }
+    a.btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    a.btn-secondary:hover { border-color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .card p { color: var(--muted); font-size: 14px; }
+    .install {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 36px;
+    }
+    .install h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    pre {
+      overflow-x: auto;
+      background: rgba(0,0,0,0.35);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #d7ecff;
+      margin: 10px 0 16px;
+    }
+    .muted { color: var(--dim); font-size: 13px; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .byline { font-weight: 600; }
+    .credits { color: var(--dim); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Free Claude Code + Hermes skill</p>
+    <h1>AI Second<br />Brain</h1>
+    <p class="lead">
+      Turn your <strong>ChatGPT + Claude history</strong> and research into a living wiki —
+      searchable in Obsidian, maintainable by your AI agent, usable from your laptop or phone.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/EzAuto399/ai-second-brain">View on GitHub</a>
+      <a class="btn btn-secondary" href="https://yodalai.xyz">Yo-Da Lai · yodalai.xyz</a>
+      <a class="btn btn-secondary" href="https://github.com/EzAuto399/ai-second-brain#install">Install instructions</a>
+    </div>
+
+    <section class="grid" aria-label="What you get">
+      <article class="card">
+        <h3>1. AI Brain</h3>
+        <p>Export ChatGPT/Claude history into tagged, linked markdown notes.</p>
+      </article>
+      <article class="card">
+        <h3>2. Living Wiki</h3>
+        <p>Drop sources in <code>raw/</code>. Your agent compiles structured wiki pages.</p>
+      </article>
+      <article class="card">
+        <h3>3. Heartbeat</h3>
+        <p>Optional channels + <code>/today</code>, <code>/ideas</code>, <code>/create</code> commands.</p>
+      </article>
+    </section>
+
+    <section class="install">
+      <h2>Install (Claude Code)</h2>
+      <pre>git clone https://github.com/EzAuto399/ai-second-brain.git ~/.claude/skills/ai-second-brain</pre>
+      <p class="muted">Then open Claude Code and say: “Set up my AI second brain.”</p>
+      <h2 style="margin-top:18px">Install (Hermes)</h2>
+      <pre>git clone https://github.com/EzAuto399/ai-second-brain.git \
+  ~/.hermes/profiles/personal/skills/research/ai-second-brain</pre>
+      <p class="muted">Full guide + FAQ on the GitHub README.</p>
+    </section>
+
+    <footer>
+      <p class="byline">Maintained by <a href="https://yodalai.xyz">Yo-Da Lai</a> · Gold Coast, Australia</p>
+      <p class="credits">
+        Built on work by Andrej Karpathy × Alex Freedman × Greg Isenberg.
+        Original packaging by Charlie Hills (MIT). This is a maintained fork.
+      </p>
+      <p class="credits">
+        Want a business-grade company brain + AI staff with approvals?
+        → <a href="https://yodalai.xyz">Book a free 15‑min build review</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

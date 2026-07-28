@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+.vscode/
+.idea/
+node_modules/
+.cache/
+*.log
+social-preview.png.bak

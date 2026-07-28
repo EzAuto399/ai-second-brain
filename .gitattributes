@@ -1,0 +1,8 @@
+# Tell GitHub Linguist these are tooling/assets, not the project's source language.
+# The actual skill lives in SKILL.md; everything else is supporting material.
+
+social-preview.html linguist-vendored=true
+render-social-preview.js linguist-vendored=true
+docs/** linguist-documentation=true
+*.skill linguist-detectable=false
+index.html linguist-vendored=true
